@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-oauth/google": "^0.12.1",
+    "firebase": "^11.1.0",
     "framer-motion": "^11.15.0",
     "react": "^18.3.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",

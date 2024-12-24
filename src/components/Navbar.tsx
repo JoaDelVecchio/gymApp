@@ -30,8 +30,9 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Links */}
+
       <ul
-        className={`${
+        className={`mr-3 ${
           isOpen ? "block" : "hidden"
         } md:flex md:items-center md:gap-12 text-lg font-medium tracking-wide text-black absolute md:relative top-20 left-0 w-full bg-white md:bg-transparent md:top-auto md:left-auto md:w-auto p-6 md:p-0 shadow-md md:shadow-none`}
       >
@@ -52,7 +53,7 @@ const Navbar = () => {
       </ul>
 
       {/* Call-to-Action Buttons */}
-      <div className="hidden md:flex items-center gap-8">
+      <div className="flex flex-col gap-4 lg:flex-row hidden md:flex items-center lg:gap-8">
         <button className="px-6 py-2 border border-black text-black font-bold rounded-full hover:bg-black hover:text-white transition-all duration-300">
           Sign In
         </button>
