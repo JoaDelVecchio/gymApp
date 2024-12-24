@@ -1,8 +1,9 @@
-import Navbar from "@/scenes/navbar/Navbar";
+import Header from "./components/Header";
+
 function App() {
   return (
-    <div className="app bg-gray-20">
-      <Navbar />
+    <div className="app">
+      <Header />
     </div>
   );
 }
