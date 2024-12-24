@@ -1,11 +1,12 @@
 import Header from "./components/Header";
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
+    <div className="app font-sans">
       <Header />
+      
     </div>
   );
-}
+};
 
 export default App;

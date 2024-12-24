@@ -1,11 +1,11 @@
-import Navbar from "./Navbar";
 import JymLogo from "@/assets/Jymlogo.png";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between fixed top-0 w-full py-6 px-12 bg-gray-900 text-white z-50 shadow-md">
+    <header className="fixed top-0 w-full bg-white text-black py-4 px-12 flex items-center justify-between z-50 shadow-md gap-7">
       {/* Logo */}
-      <img className="w-32" src={JymLogo} alt="Jym logo" />
+      <img className="w-28" src={JymLogo} alt="Jym logo" />
 
       {/* Navbar */}
       <Navbar />
