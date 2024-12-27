@@ -1,11 +1,53 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
+import {
+  CredentialResponse,
+  GoogleLogin,
+  googleLogout,
+} from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+
+type DecodedUser = {
+  sub: string;
+  name: string;
+  given_name: string;
+  family_name: string;
+  picture: string;
+  email: string;
+  email_verified: boolean;
+  locale: string;
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<DecodedUser | null>(null);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  const handleLoginSuccess = (credentialResponse: CredentialResponse) => {
+    try {
+      if (!credentialResponse || !credentialResponse.credential) {
+        throw new Error("Error with credentials");
+      }
+      const decodedUser: DecodedUser = jwtDecode(credentialResponse.credential);
+      setUser(decodedUser);
+      console.log("User logged in:", decodedUser);
+    } catch (error) {
+      console.error("Error decoding the user:", error);
+    }
+  };
+
+  const handleLogInError = () => console.log("Login failed");
+
+  const handleLogOut = () => {
+    console.log("User logging out:", user);
+    googleLogout();
+    setUser(null);
+  };
 
   return (
-    <nav className="flex items-center justify-between w-full">
+    <nav className="flex items-center justify-between w-full px-4 py-2">
       {/* Burger Menu Icon */}
       <div className="md:hidden">
         <button
@@ -30,21 +72,22 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Links */}
-
       <ul
-        className={`mr-3 ${
+        className={`${
           isOpen ? "block" : "hidden"
-        } md:flex md:items-center md:gap-12 text-lg font-medium tracking-wide text-black absolute md:relative top-20 left-0 w-full bg-white md:bg-transparent md:top-auto md:left-auto md:w-auto p-6 md:p-0 shadow-md md:shadow-none`}
+        } md:flex md:items-center md:gap-8 text-lg font-medium absolute md:relative top-24 md:top-auto left-22  bg-white md:bg-transparent p-4 md:p-0 shadow-md md:shadow-none`}
       >
         {["home", "benefits", "classes", "contact"].map((section) => (
-          <li key={section} className="cursor-pointer text-center md:text-left">
+          <li
+            key={section}
+            className="cursor-pointer text-center md:text-left hover:text-blue-600 transition-colors duration-300"
+          >
             <Link
               to={section}
               smooth={true}
               duration={500}
               offset={-70}
-              className="block md:inline hover:text-blue-600 transition-colors duration-300"
-              onClick={() => setIsOpen(false)} // Close menu after clicking
+              onClick={() => setIsOpen(false)}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </Link>
@@ -52,12 +95,49 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Call-to-Action Buttons */}
-      <div className="flex flex-col gap-4 lg:flex-row hidden md:flex items-center lg:gap-8">
-        <button className="px-6 py-2 border border-black text-black font-bold rounded-full hover:bg-black hover:text-white transition-all duration-300">
-          Sign In
-        </button>
-        <button className="px-6 py-2 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all duration-300">
+      {/* User & Call-to-Action Section */}
+      <div className="flex items-center gap-4">
+        {user ? (
+          <div className="relative inline-block">
+            <img
+              width={32}
+              height={32}
+              src={user.picture}
+              alt={user.name}
+              style={{ borderRadius: "50%", cursor: "pointer" }}
+              onClick={toggleMenu}
+            />
+            {isMenuOpen && (
+              <div
+                className="absolute right-0 mt-2 w-72 bg-white border rounded shadow-lg"
+                style={{ zIndex: 1000 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="p-2 text-sm">
+                  <p className="font-bold">{user.name}</p>
+                  <p className="text-gray-500">{user.email}</p>
+                </div>
+                <hr />
+                <button
+                  onClick={handleLogOut}
+                  className="block w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-100"
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <GoogleLogin
+            onSuccess={handleLoginSuccess}
+            onError={handleLogInError}
+            theme="outline"
+            size="medium"
+            text="signin"
+            shape="pill"
+          />
+        )}
+        <button className="px-6 py-2 border border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300">
           Become a Member
         </button>
       </div>
