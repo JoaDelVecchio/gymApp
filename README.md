@@ -1,8 +1,8 @@
-Gym App
+Jym
 
 Description
 
-Gym App is a modern web application designed to provide an intuitive and engaging interface for fitness enthusiasts. It features dynamic carousels, informative sections, and responsive design to showcase various classes, benefits, and a contact form. This application is ideal for gyms, fitness centers, and personal trainers looking to enhance their online presence.
+Jym is a modern web application designed to provide an intuitive and engaging interface for fitness enthusiasts. It features dynamic carousels, informative sections, and responsive design to showcase various classes, benefits, and a contact form. This application is ideal for gyms, fitness centers, and personal trainers looking to enhance their online presence.
 
 Features
 
