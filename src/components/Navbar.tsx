@@ -96,7 +96,7 @@ const Navbar = () => {
       </ul>
 
       {/* User & Call-to-Action Section */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 p-4  ">
         {user ? (
           <div className="relative inline-block">
             <img
