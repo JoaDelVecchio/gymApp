@@ -32,18 +32,12 @@ const Contact = () => {
       return;
     }
 
-    const formattedData = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-    };
-
     setIsLoading(true);
     try {
       await emailjs.send(
         "service_93b8tv6",
         "template_ypk9xqv",
-        formattedData,
+        formData,
         "eBrHN3Rkgz9JCTwgv"
       );
       setStatus("Message sent successfully!");
@@ -100,7 +94,7 @@ const Contact = () => {
           {isLoading ? "Sending..." : "Send Message"}
         </button>
       </form>
-      {status && <p className="mt-4 text-green-600">{status}</p>}
+      {status && <p className="mt-4 text-blue-600">{status}</p>}
     </section>
   );
 };
