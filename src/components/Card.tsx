@@ -1,9 +1,4 @@
-type CardProps = {
-  img: string;
-  title: string;
-  description: string;
-  imgHeight?: string; // Optional height for different layouts
-};
+import { CardProps } from "@/types/types";
 
 const Card = ({ img, title, description, imgHeight = "h-40" }: CardProps) => {
   return (

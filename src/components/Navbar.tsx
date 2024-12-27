@@ -6,21 +6,11 @@ import {
   googleLogout,
 } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-
-type DecodedUser = {
-  sub: string;
-  name: string;
-  given_name: string;
-  family_name: string;
-  picture: string;
-  email: string;
-  email_verified: boolean;
-  locale: string;
-};
+import { DecodedUser } from "@/types/types";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [user, setUser] = useState<DecodedUser | null>(null);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -33,7 +23,7 @@ const Navbar = () => {
       const decodedUser: DecodedUser = jwtDecode(credentialResponse.credential);
       setUser(decodedUser);
       console.log("User logged in:", decodedUser);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error decoding the user:", error);
     }
   };
