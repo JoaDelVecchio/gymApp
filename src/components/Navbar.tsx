@@ -127,7 +127,7 @@ const Navbar = () => {
             shape="pill"
           />
         )}
-        <button className="px-6 py-2 border border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300">
+        <button className="px-6 py-2 border hover:bg-white hover:border-blue-600 hover:text-blue-600 font-bold rounded-full bg-blue-600 text-white transition-all duration-300">
           Become a Member
         </button>
       </div>
