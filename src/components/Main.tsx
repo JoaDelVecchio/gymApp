@@ -1,8 +1,8 @@
-import Home from "./sections/Home";
-import Benefits from "./sections/Benefits";
-import Classes from "./sections/Classes";
-import Contact from "./sections/Contact";
-import Plans from "./sections/Plans";
+import Home from "./sections/home/Home";
+import Benefits from "./sections/benefits/Benefits";
+import Classes from "./sections/classe/Classes";
+import Contact from "./sections/contact/Contact";
+import Plans from "./sections/plans/Plans";
 const Main = () => {
   return (
     <main>

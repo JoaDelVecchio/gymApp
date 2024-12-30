@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/sections/Footer";
+import Footer from "./components/sections/footer/Footer";
 const App = () => {
   return (
     <div className="app font-sans">

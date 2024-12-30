@@ -1,8 +1,8 @@
 // components/sections/Classes.tsx
-import class1 from "../../assets/class1.jpg";
-import class2 from "../../assets/class2.jpg";
-import class3 from "../../assets/class3.jpg";
-import Card from "../Card";
+import class1 from "../../../assets/class1.jpg";
+import class2 from "../../../assets/class2.jpg";
+import class3 from "../../../assets/class3.jpg";
+import Card from "../../Card";
 
 const classesData = [
   {

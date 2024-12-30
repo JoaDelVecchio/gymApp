@@ -1,7 +1,7 @@
-import benefit1 from "../../assets/benefit1.jpg";
-import benefit2 from "../../assets/benefit2.jpg";
-import benefit3 from "../../assets/benefit3.jpg";
-import Card from "../Card";
+import benefit1 from "../../../assets/benefit1.jpg";
+import benefit2 from "../../../assets/benefit2.jpg";
+import benefit3 from "../../../assets/benefit3.jpg";
+import Card from "../../Card";
 
 const benefitsData = [
   {

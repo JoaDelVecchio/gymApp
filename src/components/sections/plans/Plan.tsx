@@ -31,7 +31,7 @@ const Plan = ({
         onClick={() => handleBuy(plan.id)}
         className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
       >
-        Buy Now
+        Join Now
       </button>
     </div>
   );
