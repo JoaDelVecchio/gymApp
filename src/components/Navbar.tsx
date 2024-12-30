@@ -76,7 +76,7 @@ const Navbar = () => {
               to={section}
               smooth={true}
               duration={500}
-              offset={-70}
+              offset={-120}
               onClick={() => setIsOpen(false)}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -128,7 +128,15 @@ const Navbar = () => {
           />
         )}
         <button className="px-6 py-2 border hover:bg-white hover:border-blue-600 hover:text-blue-600 font-bold rounded-full bg-blue-600 text-white transition-all duration-300">
-          Become a Member
+          <Link
+            to={"plans"}
+            smooth={true}
+            duration={500}
+            offset={-120}
+            onClick={() => setIsOpen(false)}
+          >
+            Become a Member
+          </Link>
         </button>
       </div>
     </nav>
