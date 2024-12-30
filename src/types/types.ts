@@ -15,3 +15,12 @@ export type CardProps = {
   description: string;
   imgHeight?: string; // Optional height for different layouts
 };
+
+export type Plan = {
+  id: number;
+  name: string;
+  features: string[];
+  tagline: string;
+  price: number;
+  duration: "1 month" | "12 months";
+};
